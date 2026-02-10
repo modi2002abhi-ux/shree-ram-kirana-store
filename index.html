@@ -17,8 +17,8 @@
       --text:#eaf1ff;
       --muted:#a9b6cc;
       --line:rgba(255,255,255,.10);
-      --brand:#22c55e; /* whatsapp green */
-      --brand2:#60a5fa; /* blue */
+      --brand:#22c55e;
+      --brand2:#60a5fa;
       --warn:#fbbf24;
       --shadow: 0 18px 60px rgba(0,0,0,.45);
       --radius: 18px;
@@ -125,9 +125,7 @@
     }
 
     /* Hero */
-    .hero{
-      padding: 46px 0 18px;
-    }
+    .hero{padding: 46px 0 18px;}
     .heroGrid{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
@@ -178,7 +176,6 @@
       gap:12px;
       flex-wrap:wrap;
     }
-
     .trustRow{
       margin-top:18px;
       display:flex;
@@ -307,13 +304,78 @@
     .orderStrip p{margin:6px 0 0; color:var(--muted); font-weight:600; font-size:14px; line-height:1.55}
     .orderStrip .btn{border-color: rgba(255,255,255,.16)}
 
-    /* Reviews */
-    .quote{
-      font-size:44px;
-      opacity:.25;
-      line-height:1;
-      margin-bottom:-10px;
+    /* Products table */
+    .toolsRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin: 10px 0 14px;
     }
+    .input, select{
+      width: min(320px, 100%);
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight: 700;
+      outline: none;
+    }
+    select{cursor:pointer}
+    .tableWrap{
+      overflow:auto;
+      border-radius: var(--radius2);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      box-shadow: var(--shadow);
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width: 700px;
+    }
+    th, td{
+      padding: 14px 14px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      text-align:left;
+      font-weight:700;
+      font-size:14px;
+    }
+    th{
+      color:#cfe2ff;
+      background: rgba(255,255,255,.03);
+      position:sticky;
+      top:0;
+      z-index:2;
+    }
+    td{
+      color: var(--text);
+      font-weight:700;
+    }
+    td small{
+      display:block;
+      color: var(--muted);
+      font-weight:600;
+      margin-top:4px;
+    }
+    .price{
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+    .stock{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      font-weight:800;
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .in{border-color: rgba(34,197,94,.22); background: rgba(34,197,94,.10); color:#b9ffd1;}
+    .out{border-color: rgba(251,191,36,.22); background: rgba(251,191,36,.10); color:#ffe7a6;}
 
     /* Contact */
     .contactGrid{
@@ -340,6 +402,7 @@
       background: rgba(255,255,255,.02);
       box-shadow: var(--shadow);
     }
+    iframe{width:100%; height:360px; border:0}
 
     /* Footer */
     footer{
@@ -380,6 +443,7 @@
       .grid3{grid-template-columns: 1fr}
       .contactGrid{grid-template-columns: 1fr}
       .navlinks{display:none}
+      table{min-width: 650px;}
     }
   </style>
 </head>
@@ -398,6 +462,7 @@
 
     <nav class="navlinks">
       <a href="#products" id="navProducts">Products</a>
+      <a href="#priceList" id="navPrice">Price List</a>
       <a href="#why" id="navWhy">Why Us</a>
       <a href="#order" id="navOrder">WhatsApp Order</a>
       <a href="#contact" id="navContact">Contact</a>
@@ -447,7 +512,7 @@
             <h3 id="sideTitle">Quick Info</h3>
             <p id="sideSub">Call/WhatsApp for availability & quick orders.</p>
           </div>
-          <span class="badge" style="background:rgba(251,191,36,.12);border-color:rgba(251,191,36,.22);color:#ffe7a6;">🕒 Open Today</span>
+          <span class="badge" id="openTodayBadge" style="background:rgba(251,191,36,.12);border-color:rgba(251,191,36,.22);color:#ffe7a6;">🕒 Open Today</span>
         </div>
 
         <div class="kpiGrid">
@@ -530,6 +595,50 @@
           <p id="p6d">Chips, namkeen, chocolates, biscuits, ready-to-eat items and more.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- PRICE LIST -->
+  <section id="priceList">
+    <div class="container">
+      <div class="sectionTitle">
+        <h2 id="priceTitle">Price List</h2>
+        <p id="priceSub">Search items and check availability. (Prices can change)</p>
+      </div>
+
+      <div class="toolsRow">
+        <input class="input" id="searchInput" type="text" placeholder="Search item... (e.g. Sugar, Aata, Tea)" />
+        <select id="categoryFilter">
+          <option value="All">All Categories</option>
+          <option value="Grocery">Grocery</option>
+          <option value="Daily Essentials">Daily Essentials</option>
+          <option value="Stationery">Stationery</option>
+          <option value="Cold Drinks">Cold Drinks</option>
+          <option value="Ice Cream">Ice Cream</option>
+          <option value="Snacks">Snacks</option>
+        </select>
+        <a class="btn primary" id="waPriceBtn" href="https://wa.me/919754397187?text=Hello%20Shree%20Ram%20Kirana%20Store%2C%20I%20want%20to%20know%20price%20%26%20availability%20for%3A%20" target="_blank">🟢 Ask on WhatsApp</a>
+      </div>
+
+      <div class="tableWrap">
+        <table>
+          <thead>
+            <tr>
+              <th id="thItem">Item</th>
+              <th id="thCat">Category</th>
+              <th id="thPrice">Price</th>
+              <th id="thStock">Status</th>
+            </tr>
+          </thead>
+          <tbody id="productRows">
+            <!-- JS will render -->
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:12px; color:var(--muted); font-weight:600; line-height:1.6;" id="priceNote">
+        Note: Prices may change. Confirm final price on WhatsApp / call.
+      </p>
     </div>
   </section>
 
@@ -644,6 +753,366 @@
           <div class="ctaRow" style="margin-top:14px;">
             <a class="btn primary" href="https://wa.me/919754397187?text=Hello%20Shree%20Ram%20Kirana%20Store%2C%20I%20want%20to%20place%20an%20order.%20Please%20share%20availability%20%26%20price.%20My%20items%20are%3A%20" target="_blank">🟢 WhatsApp Order</a>
             <a class="btn blue" href="tel:+919754397187">📞 Call Now</a>
+            <a class="btn ghost" id="dirBtn" href="https://maps.app.goo.gl/CSsyDqkaZHsR3pBZA" target="_blank">📍 Get Directions</a>
           </div>
+        </div>
 
-          <div class="ctaRow" style="margi
+        <div class="mapWrap">
+          <!-- MAP EMBED -->
+          <iframe
+            src="https://www.google.com/maps?q=Shree%20Ram%20Kirana%20Store%20Near%20Tamboli%20Chowk%20Nagda%20Dewas&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen="">
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Floating Buttons -->
+<div class="floatBar">
+  <a class="fab whatsapp" href="https://wa.me/919754397187?text=Hello%20Shree%20Ram%20Kirana%20Store%2C%20I%20want%20to%20place%20an%20order.%20My%20items%20are%3A%20" target="_blank" title="WhatsApp">🟢</a>
+  <a class="fab call" href="tel:+919754397187" title="Call">📞</a>
+</div>
+
+<footer>
+  <div class="container">
+    <div id="footerText">© <span id="year"></span> Shree Ram Kirana Store • Nagda, Dewas • Since 1984</div>
+  </div>
+</footer>
+
+<script>
+  // ====== YEAR ======
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // ====== PRODUCTS (EDIT HERE) ======
+  // Tum yahi par items + price change/add karna
+  const PRODUCTS = [
+    { name: "Aata (Wheat Flour) 5kg", category: "Grocery", price: "", stock: "In stock" },
+    { name: "Rice 5kg", category: "Grocery", price: "", stock: "In stock" },
+    { name: "Sugar 1kg", category: "Grocery", price: "", stock: "In stock" },
+    { name: "Salt 1kg", category: "Grocery", price: "", stock: "In stock" },
+    { name: "Tea 250g", category: "Grocery", price: "", stock: "In stock" },
+    { name: "Cooking Oil 1L", category: "Grocery", price: "", stock: "In stock" },
+    { name: "Tur Dal 1kg", category: "Grocery", price: "", stock: "In stock" },
+    { name: "Moong Dal 1kg", category: "Grocery", price: "", stock: "In stock" },
+    { name: "Chana Dal 1kg", category: "Grocery", price: "", stock: "In stock" },
+    { name: "Poha 1kg", category: "Grocery", price: "", stock: "In stock" },
+    { name: "Besan 1kg", category: "Grocery", price: "", stock: "In stock" },
+    { name: "Spices (Masale)", category: "Grocery", price: "", stock: "In stock" },
+
+    { name: "Bath Soap", category: "Daily Essentials", price: "", stock: "In stock" },
+    { name: "Shampoo", category: "Daily Essentials", price: "", stock: "In stock" },
+    { name: "Toothpaste", category: "Daily Essentials", price: "", stock: "In stock" },
+    { name: "Detergent Powder", category: "Daily Essentials", price: "", stock: "In stock" },
+    { name: "Dishwash Liquid", category: "Daily Essentials", price: "", stock: "In stock" },
+
+    { name: "Notebook", category: "Stationery", price: "", stock: "In stock" },
+    { name: "Pen", category: "Stationery", price: "", stock: "In stock" },
+    { name: "Pencil", category: "Stationery", price: "", stock: "In stock" },
+    { name: "Eraser", category: "Stationery", price: "", stock: "In stock" },
+    { name: "Sharpener", category: "Stationery", price: "", stock: "In stock" },
+
+    { name: "Cold Drink (500ml)", category: "Cold Drinks", price: "", stock: "In stock" },
+    { name: "Water Bottle", category: "Cold Drinks", price: "", stock: "In stock" },
+    { name: "Juice", category: "Cold Drinks", price: "", stock: "In stock" },
+
+    { name: "Ice Cream Cup", category: "Ice Cream", price: "", stock: "In stock" },
+    { name: "Ice Cream Cone", category: "Ice Cream", price: "", stock: "In stock" },
+
+    { name: "Biscuits", category: "Snacks", price: "", stock: "In stock" },
+    { name: "Namkeen", category: "Snacks", price: "", stock: "In stock" },
+    { name: "Chips", category: "Snacks", price: "", stock: "In stock" },
+    { name: "Chocolates", category: "Snacks", price: "", stock: "In stock" }
+  ];
+
+  // ====== RENDER TABLE ======
+  const rowsEl = document.getElementById("productRows");
+  const searchInput = document.getElementById("searchInput");
+  const categoryFilter = document.getElementById("categoryFilter");
+
+  function renderTable(){
+    const q = (searchInput.value || "").toLowerCase().trim();
+    const cat = categoryFilter.value;
+
+    const filtered = PRODUCTS.filter(p => {
+      const matchText = p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q);
+      const matchCat = (cat === "All") ? true : p.category === cat;
+      return matchText && matchCat;
+    });
+
+    rowsEl.innerHTML = filtered.map(p => {
+      const priceText = p.price ? `₹ ${p.price}` : "Ask on WhatsApp";
+      const stockClass = (p.stock === "In stock") ? "in" : "out";
+      const stockText = (p.stock === "In stock") ? "Available" : "Out of stock";
+
+      return `
+        <tr>
+          <td>${p.name}</td>
+          <td>${p.category}</td>
+          <td class="price">${priceText}</td>
+          <td><span class="stock ${stockClass}">${stockText}</span></td>
+        </tr>
+      `;
+    }).join("");
+
+    if(filtered.length === 0){
+      rowsEl.innerHTML = `
+        <tr>
+          <td colspan="4" style="color: var(--muted); font-weight:700;">
+            No items found. Please search again or WhatsApp us.
+          </td>
+        </tr>
+      `;
+    }
+  }
+
+  searchInput.addEventListener("input", renderTable);
+  categoryFilter.addEventListener("change", renderTable);
+  renderTable();
+
+  // ====== WHATSAPP ASK BUTTON AUTO-FILL ======
+  const waPriceBtn = document.getElementById("waPriceBtn");
+  function updateWA(){
+    const q = (searchInput.value || "").trim();
+    const msg = q ? q : "Items list";
+    waPriceBtn.href = "https://wa.me/919754397187?text=" + encodeURIComponent(
+      "Hello Shree Ram Kirana Store, I want to know price & availability for: " + msg
+    );
+  }
+  searchInput.addEventListener("input", updateWA);
+  categoryFilter.addEventListener("change", updateWA);
+  updateWA();
+
+  // ====== LANGUAGE TOGGLE (FULL SITE) ======
+  let isHindi = false;
+
+  const T = {
+    en: {
+      langBtn: "EN | हिंदी",
+      navProducts: "Products",
+      navPrice: "Price List",
+      navWhy: "Why Us",
+      navOrder: "WhatsApp Order",
+      navContact: "Contact",
+      badge: "⭐ Trusted Since 1984",
+      heroTitle: 'Your trusted kirana store in <span style="color:#8fd3ff;">Nagda, Dewas</span>.',
+      heroSub: "Grocery, daily essentials, stationery, cold drinks, ice creams & more — quality products, fair pricing, and fast service.",
+      heroDir: "📍 Get Directions",
+      pill1: "✅ All daily needs available",
+      pill2: "⚡ Fast service",
+      pill3: "💯 Trusted by local families",
+      sideTitle: "Quick Info",
+      sideSub: "Call/WhatsApp for availability & quick orders.",
+      openTodayBadge: "🕒 Open Today",
+      k1: "Opening Time",
+      k2: "Closing Time",
+      k3: "Break Time",
+      k4: "Near Tamboli Chowk",
+      addressTitle: "Store Address",
+      prodTitle: "Products & Categories",
+      prodSub: "Everything you need — in one trusted store.",
+      whyTitle: "Why Customers Choose Us",
+      whySub: "Trusted store in Nagda, Dewas since 1984.",
+      w1t: "Since 1984",
+      w1d: "A trusted family store with long-term customer relationships.",
+      w2t: "Fair Pricing",
+      w2d: "Honest rates and best value for every customer.",
+      w3t: "Fast Service",
+      w3d: "Quick billing and fast response on WhatsApp & calls.",
+      orderTitle: "Want to order quickly?",
+      orderSub: "Send your list on WhatsApp — we’ll confirm availability and price.",
+      revTitle: "What People Say",
+      revSub: "Local trust matters.",
+      r1t: "Trusted shop for years",
+      r1d: "Good quality items and fair price. Always helpful.",
+      r2t: "Everything available",
+      r2d: "Grocery + stationery + cold drinks — one stop store.",
+      r3t: "Fast WhatsApp response",
+      r3d: "We send list on WhatsApp and get quick reply.",
+      contactTitle: "Contact & Location",
+      contactSub: "Visit us near Tamboli Chowk, Nagda, Dewas.",
+      phoneTitle: "Phone / WhatsApp",
+      addrTitle: "Address",
+      timeTitle: "Opening Hours",
+      breakLine: "Break: 12:00 PM – 3:00 PM",
+      dirBtn: "📍 Get Directions",
+      priceTitle: "Price List",
+      priceSub: "Search items and check availability. (Prices can change)",
+      thItem: "Item",
+      thCat: "Category",
+      thPrice: "Price",
+      thStock: "Status",
+      priceNote: "Note: Prices may change. Confirm final price on WhatsApp / call.",
+      footerText: "© " + new Date().getFullYear() + " Shree Ram Kirana Store • Nagda, Dewas • Since 1984",
+      searchPlaceholder: "Search item... (e.g. Sugar, Aata, Tea)",
+      allCats: "All Categories",
+      askBtn: "🟢 Ask on WhatsApp"
+    },
+    hi: {
+      langBtn: "हिंदी | EN",
+      navProducts: "सामान",
+      navPrice: "रेट लिस्ट",
+      navWhy: "क्यों हम",
+      navOrder: "WhatsApp ऑर्डर",
+      navContact: "संपर्क",
+      badge: "⭐ 1984 से भरोसेमंद",
+      heroTitle: 'Nagda, Dewas में <span style="color:#8fd3ff;">आपकी भरोसेमंद किराना दुकान</span>.',
+      heroSub: "किराना, दैनिक जरूरतें, स्टेशनरी, कोल्ड ड्रिंक्स, आइसक्रीम और बहुत कुछ — अच्छी क्वालिटी, सही दाम और तेज़ सर्विस।",
+      heroDir: "📍 दिशा देखें",
+      pill1: "✅ रोज़मर्रा की सभी चीज़ें उपलब्ध",
+      pill2: "⚡ तेज़ सर्विस",
+      pill3: "💯 लोकल परिवारों का भरोसा",
+      sideTitle: "जल्दी जानकारी",
+      sideSub: "उपलब्धता व ऑर्डर के लिए कॉल/WhatsApp करें।",
+      openTodayBadge: "🕒 आज खुला है",
+      k1: "खुलने का समय",
+      k2: "बंद होने का समय",
+      k3: "ब्रेक टाइम",
+      k4: "तंबोली चौक के पास",
+      addressTitle: "दुकान का पता",
+      prodTitle: "सामान व कैटेगरी",
+      prodSub: "जो भी चाहिए — सब एक ही दुकान पर।",
+      whyTitle: "लोग हमें क्यों चुनते हैं",
+      whySub: "Nagda, Dewas में 1984 से भरोसेमंद दुकान।",
+      w1t: "1984 से",
+      w1d: "पुरानी व भरोसेमंद पारिवारिक दुकान।",
+      w2t: "सही दाम",
+      w2d: "ईमानदार रेट और अच्छी वैल्यू।",
+      w3t: "तेज़ सर्विस",
+      w3d: "जल्दी बिलिंग और WhatsApp/Call पर तुरंत जवाब।",
+      orderTitle: "जल्दी ऑर्डर करना है?",
+      orderSub: "WhatsApp पर लिस्ट भेजो — हम उपलब्धता और रेट कन्फर्म करेंगे।",
+      revTitle: "लोग क्या कहते हैं",
+      revSub: "लोकल भरोसा सबसे ज़रूरी।",
+      r1t: "सालों से भरोसेमंद दुकान",
+      r1d: "क्वालिटी अच्छी और रेट सही। हमेशा मदद करते हैं।",
+      r2t: "सब कुछ मिल जाता है",
+      r2d: "किराना + स्टेशनरी + कोल्ड ड्रिंक्स — सब एक जगह।",
+      r3t: "WhatsApp पर जल्दी जवाब",
+      r3d: "WhatsApp पर लिस्ट भेजते हैं और तुरंत रिप्लाई मिलता है।",
+      contactTitle: "संपर्क व लोकेशन",
+      contactSub: "तंबोली चौक के पास, Nagda, Dewas.",
+      phoneTitle: "फोन / WhatsApp",
+      addrTitle: "पता",
+      timeTitle: "खुलने का समय",
+      breakLine: "ब्रेक: 12:00 PM – 3:00 PM",
+      dirBtn: "📍 दिशा देखें",
+      priceTitle: "रेट लिस्ट",
+      priceSub: "सामान सर्च करें और उपलब्धता देखें। (रेट बदल सकते हैं)",
+      thItem: "सामान",
+      thCat: "कैटेगरी",
+      thPrice: "रेट",
+      thStock: "स्थिति",
+      priceNote: "नोट: रेट बदल सकते हैं। फाइनल रेट WhatsApp / कॉल पर कन्फर्म करें।",
+      footerText: "© " + new Date().getFullYear() + " श्री राम किराना स्टोर • Nagda, Dewas • 1984 से",
+      searchPlaceholder: "सर्च करें... (जैसे Sugar, Aata, Tea)",
+      allCats: "सभी कैटेगरी",
+      askBtn: "🟢 WhatsApp पर पूछें"
+    }
+  };
+
+  function setText(id, value, isHTML=false){
+    const el = document.getElementById(id);
+    if(!el) return;
+    if(isHTML) el.innerHTML = value;
+    else el.textContent = value;
+  }
+
+  function applyLanguage(){
+    const lang = isHindi ? "hi" : "en";
+    const t = T[lang];
+
+    setText("langBtn", t.langBtn);
+    setText("navProducts", t.navProducts);
+    setText("navPrice", t.navPrice);
+    setText("navWhy", t.navWhy);
+    setText("navOrder", t.navOrder);
+    setText("navContact", t.navContact);
+
+    setText("badge", t.badge);
+    setText("heroTitle", t.heroTitle, true);
+    setText("heroSub", t.heroSub);
+    setText("heroDir", t.heroDir);
+
+    setText("pill1", t.pill1);
+    setText("pill2", t.pill2);
+    setText("pill3", t.pill3);
+
+    setText("sideTitle", t.sideTitle);
+    setText("sideSub", t.sideSub);
+    setText("openTodayBadge", t.openTodayBadge);
+
+    setText("k1", t.k1);
+    setText("k2", t.k2);
+    setText("k3", t.k3);
+    setText("k4", t.k4);
+
+    setText("addressTitle", t.addressTitle);
+
+    setText("prodTitle", t.prodTitle);
+    setText("prodSub", t.prodSub);
+
+    setText("whyTitle", t.whyTitle);
+    setText("whySub", t.whySub);
+    setText("w1t", t.w1t);
+    setText("w1d", t.w1d);
+    setText("w2t", t.w2t);
+    setText("w2d", t.w2d);
+    setText("w3t", t.w3t);
+    setText("w3d", t.w3d);
+
+    setText("orderTitle", t.orderTitle);
+    setText("orderSub", t.orderSub);
+
+    setText("revTitle", t.revTitle);
+    setText("revSub", t.revSub);
+    setText("r1t", t.r1t);
+    setText("r1d", t.r1d);
+    setText("r2t", t.r2t);
+    setText("r2d", t.r2d);
+    setText("r3t", t.r3t);
+    setText("r3d", t.r3d);
+
+    setText("contactTitle", t.contactTitle);
+    setText("contactSub", t.contactSub);
+    setText("phoneTitle", t.phoneTitle);
+    setText("addrTitle", t.addrTitle);
+    setText("timeTitle", t.timeTitle);
+    setText("breakLine", t.breakLine);
+    setText("dirBtn", t.dirBtn);
+
+    setText("priceTitle", t.priceTitle);
+    setText("priceSub", t.priceSub);
+    setText("thItem", t.thItem);
+    setText("thCat", t.thCat);
+    setText("thPrice", t.thPrice);
+    setText("thStock", t.thStock);
+    setText("priceNote", t.priceNote);
+    setText("footerText", t.footerText);
+
+    // search placeholder
+    document.getElementById("searchInput").placeholder = t.searchPlaceholder;
+
+    // dropdown first option label
+    const firstOpt = document.querySelector("#categoryFilter option[value='All']");
+    if(firstOpt) firstOpt.textContent = t.allCats;
+
+    // Ask button text
+    setText("waPriceBtn", t.askBtn);
+  }
+
+  document.getElementById("langBtn").addEventListener("click", () => {
+    isHindi = !isHindi;
+    applyLanguage();
+  });
+
+  applyLanguage();
+</script>
+
+</body>
+</html>
