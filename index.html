@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Shree Ram Kirana Store (श्री राम किराना स्टोर) | Nagda, Dewas</title>
+  <meta name="description" content="Shree Ram Kirana Store (श्री राम किराना स्टोर) in Nagda, Dewas (M.P.) – Since 1984. Grocery, Stationery, Cold Drinks, Ice Creams & daily essentials. Call/WhatsApp: 9754397187" />
+  <meta name="keywords" content="Shree Ram Kirana Store, Kirana Store Nagda Dewas, Grocery Nagda, Stationery Nagda, Cold Drinks, Ice Cream, Kirana Dewas" />
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#0f1621;
+      --card2:#0d131c;
+      --text:#eaf1ff;
+      --muted:#a9b6cc;
+      --line:rgba(255,255,255,.10);
+      --brand:#22c55e; /* whatsapp green */
+      --brand2:#60a5fa; /* blue */
+      --warn:#fbbf24;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --radius2: 26px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 20% 0%, rgba(96,165,250,.18), transparent 60%),
+                  radial-gradient(900px 700px at 90% 10%, rgba(34,197,94,.16), transparent 55%),
+                  radial-gradient(800px 700px at 50% 90%, rgba(251,191,36,.10), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1150px, 92%); margin:auto}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: rgba(11,15,20,.65);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .logo{
+      width:44px; height:44px;
+      border-radius:14px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(34,197,94,.25), rgba(96,165,250,.18));
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      font-size:22px;
+    }
+    .brand small{
+      display:block;
+      font-weight:600;
+      color:var(--muted);
+      margin-top:2px;
+      font-size:12px;
+    }
+
+    .navlinks{
+      display:flex; align-items:center; gap:18px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:14px;
+    }
+    .navlinks a:hover{color:var(--text)}
+
+    .actions{
+      display:flex; align-items:center; gap:10px;
+    }
+
+    .btn{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius: 14px;
+      font-weight:700;
+      font-size:14px;
+      cursor:pointer;
+      transition:.18s ease;
+      display:inline-flex; align-items:center; gap:8px;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.22)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(34,197,94,.75));
+      border-color: rgba(34,197,94,.35);
+      color:#06210f;
+    }
+    .btn.blue{
+      background: linear-gradient(135deg, rgba(96,165,250,.95), rgba(96,165,250,.75));
+      border-color: rgba(96,165,250,.35);
+      color:#061423;
+    }
+    .btn.ghost{
+      background: rgba(255,255,255,.03);
+    }
+
+    .lang{
+      border-radius: 14px;
+      padding:10px 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    /* Hero */
+    .hero{
+      padding: 46px 0 18px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      align-items:stretch;
+    }
+    .heroCard{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius2);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .heroCard:before{
+      content:"";
+      position:absolute; inset:-60px -80px auto auto;
+      width:260px; height:260px;
+      background: radial-gradient(circle, rgba(34,197,94,.22), transparent 60%);
+      transform: rotate(12deg);
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(34,197,94,.12);
+      border:1px solid rgba(34,197,94,.22);
+      color:#b9ffd1;
+      font-weight:800;
+      font-size:13px;
+    }
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(28px, 3.2vw, 46px);
+      line-height:1.08;
+      letter-spacing:-.6px;
+    }
+    .sub{
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.6;
+      max-width: 58ch;
+    }
+    .ctaRow{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .trustRow{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .pill{
+      background: rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.10);
+      padding:10px 12px;
+      border-radius: 999px;
+      font-weight:700;
+      color: #d6e3ff;
+      font-size:13px;
+    }
+
+    /* Side card */
+    .sideCard{
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius2);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .sideTop{
+      display:flex; justify-content:space-between; gap:12px; align-items:flex-start;
+    }
+    .sideTop h3{
+      margin:0;
+      font-size:18px;
+      letter-spacing:-.2px;
+    }
+    .sideTop p{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-weight:600;
+      font-size:14px;
+      line-height:1.5;
+    }
+    .kpiGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    .kpi{
+      background: rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: 18px;
+      padding:14px;
+    }
+    .kpi strong{
+      display:block;
+      font-size:18px;
+      letter-spacing:-.3px;
+    }
+    .kpi span{
+      display:block;
+      margin-top:4px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:13px;
+    }
+
+    /* Sections */
+    section{padding: 18px 0 44px;}
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:14px;
+      margin: 18px 0 14px;
+    }
+    .sectionTitle h2{
+      margin:0;
+      font-size:24px;
+      letter-spacing:-.3px;
+    }
+    .sectionTitle p{
+      margin:0;
+      color:var(--muted);
+      font-weight:600;
+      font-size:14px;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      background: rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      padding:16px;
+      transition:.18s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.18);
+    }
+    .card h4{margin:8px 0 6px; font-size:16px}
+    .card p{margin:0; color:var(--muted); font-weight:600; line-height:1.55; font-size:14px}
+    .icon{
+      width:44px; height:44px;
+      border-radius: 16px;
+      display:grid; place-items:center;
+      background: rgba(96,165,250,.10);
+      border:1px solid rgba(96,165,250,.18);
+      font-size:20px;
+    }
+
+    /* Order strip */
+    .orderStrip{
+      background: linear-gradient(135deg, rgba(34,197,94,.18), rgba(96,165,250,.12));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius2);
+      padding: 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      box-shadow: var(--shadow);
+    }
+    .orderStrip h3{margin:0; font-size:18px}
+    .orderStrip p{margin:6px 0 0; color:var(--muted); font-weight:600; font-size:14px; line-height:1.55}
+    .orderStrip .btn{border-color: rgba(255,255,255,.16)}
+
+    /* Reviews */
+    .quote{
+      font-size:44px;
+      opacity:.25;
+      line-height:1;
+      margin-bottom:-10px;
+    }
+
+    /* Contact */
+    .contactGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    .infoRow{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .infoRow b{display:block}
+    .infoRow span{color:var(--muted); font-weight:600}
+    .mapWrap{
+      overflow:hidden;
+      border-radius: var(--radius2);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      box-shadow: var(--shadow);
+    }
+
+    /* Footer */
+    footer{
+      padding: 22px 0 34px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-weight:600;
+      font-size:13px;
+    }
+
+    /* Floating buttons */
+    .floatBar{
+      position:fixed;
+      right:14px;
+      bottom:14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      z-index:100;
+    }
+    .fab{
+      width:54px; height:54px;
+      border-radius: 18px;
+      display:grid; place-items:center;
+      box-shadow: 0 16px 40px rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.14);
+      cursor:pointer;
+      transition:.18s ease;
+      font-size:22px;
+    }
+    .fab:hover{transform: translateY(-2px)}
+    .fab.whatsapp{background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(34,197,94,.70)); color:#06210f;}
+    .fab.call{background: linear-gradient(135deg, rgba(96,165,250,.95), rgba(96,165,250,.70)); color:#061423;}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .heroGrid{grid-template-columns: 1fr}
+      .grid3{grid-template-columns: 1fr}
+      .contactGrid{grid-template-columns: 1fr}
+      .navlinks{display:none}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo">🛒</div>
+      <div>
+        <div id="siteName">Shree Ram Kirana Store</div>
+        <small id="siteTag">श्री राम किराना स्टोर • Nagda, Dewas</small>
+      </div>
+    </div>
+
+    <nav class="navlinks">
+      <a href="#products" id="navProducts">Products</a>
+      <a href="#why" id="navWhy">Why Us</a>
+      <a href="#order" id="navOrder">WhatsApp Order</a>
+      <a href="#contact" id="navContact">Contact</a>
+    </nav>
+
+    <div class="actions">
+      <button class="lang" id="langBtn">EN | हिंदी</button>
+      <a class="btn primary" id="topWhatsApp" href="https://wa.me/919754397187?text=Hello%20Shree%20Ram%20Kirana%20Store%2C%20I%20want%20to%20place%20an%20order.%20Please%20share%20availability%20%26%20price.%20My%20items%20are%3A%20" target="_blank">WhatsApp</a>
+      <a class="btn ghost" href="tel:+919754397187">Call</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container heroGrid">
+
+      <div class="heroCard">
+        <span class="badge" id="badge">⭐ Trusted Since 1984</span>
+
+        <h1 id="heroTitle">
+          Your trusted kirana store in <span style="color:#8fd3ff;">Nagda, Dewas</span>.
+        </h1>
+
+        <p class="sub" id="heroSub">
+          Grocery, daily essentials, stationery, cold drinks, ice creams & more — quality products, fair pricing, and fast service.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn primary" id="heroWA" href="https://wa.me/919754397187?text=Hello%20Shree%20Ram%20Kirana%20Store%2C%20I%20want%20to%20place%20an%20order.%20Please%20share%20availability%20%26%20price.%20My%20items%20are%3A%20" target="_blank">🟢 WhatsApp Order</a>
+          <a class="btn blue" href="tel:+919754397187">📞 Call Now</a>
+          <a class="btn ghost" href="#contact" id="heroDir">📍 Get Directions</a>
+        </div>
+
+        <div class="trustRow">
+          <div class="pill" id="pill1">✅ All daily needs available</div>
+          <div class="pill" id="pill2">⚡ Fast service</div>
+          <div class="pill" id="pill3">💯 Trusted by local families</div>
+        </div>
+      </div>
+
+      <div class="sideCard">
+        <div class="sideTop">
+          <div>
+            <h3 id="sideTitle">Quick Info</h3>
+            <p id="sideSub">Call/WhatsApp for availability & quick orders.</p>
+          </div>
+          <span class="badge" style="background:rgba(251,191,36,.12);border-color:rgba(251,191,36,.22);color:#ffe7a6;">🕒 Open Today</span>
+        </div>
+
+        <div class="kpiGrid">
+          <div class="kpi">
+            <strong>7:00 AM</strong>
+            <span id="k1">Opening Time</span>
+          </div>
+          <div class="kpi">
+            <strong>10:00 PM</strong>
+            <span id="k2">Closing Time</span>
+          </div>
+          <div class="kpi">
+            <strong>12 PM – 3 PM</strong>
+            <span id="k3">Break Time</span>
+          </div>
+          <div class="kpi">
+            <strong>📍 Nagda, Dewas</strong>
+            <span id="k4">Near Tamboli Chowk</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4 id="addressTitle">Store Address</h4>
+          <p id="addressText">
+            185, Near Tamboli Chowk, Nagda, Dewas (Madhya Pradesh)
+          </p>
+          <div class="ctaRow" style="margin-top:12px">
+            <a class="btn primary" href="https://wa.me/919754397187?text=Hello%20Shree%20Ram%20Kirana%20Store%2C%20I%20want%20to%20place%20an%20order.%20Please%20share%20availability%20%26%20price.%20My%20items%20are%3A%20" target="_blank">WhatsApp</a>
+            <a class="btn ghost" href="tel:+919754397187">Call</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="container">
+      <div class="sectionTitle">
+        <h2 id="prodTitle">Products & Categories</h2>
+        <p id="prodSub">Everything you need — in one trusted store.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <div class="icon">🧺</div>
+          <h4 id="p1t">Grocery Items</h4>
+          <p id="p1d">Atta, rice, dal, oil, spices, salt, sugar, tea, coffee, biscuits and more.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🧻</div>
+          <h4 id="p2t">Daily Essentials</h4>
+          <p id="p2d">Soaps, detergents, shampoo, toothpaste, cleaning items and household needs.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">✏️</div>
+          <h4 id="p3t">Stationery</h4>
+          <p id="p3d">Notebooks, pens, pencils, school supplies, office stationery and more.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🥤</div>
+          <h4 id="p4t">Cold Drinks</h4>
+          <p id="p4d">Soft drinks, juices, water bottles and chilled beverages available.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🍦</div>
+          <h4 id="p5t">Ice Creams</h4>
+          <p id="p5d">Popular ice cream options for kids and families.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🍪</div>
+          <h4 id="p6t">Snacks & More</h4>
+          <p id="p6d">Chips, namkeen, chocolates, biscuits, ready-to-eat items and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <div class="container">
+      <div class="sectionTitle">
+        <h2 id="whyTitle">Why Customers Choose Us</h2>
+        <p id="whySub">Trusted store in Nagda, Dewas since 1984.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <div class="icon">🏆</div>
+          <h4 id="w1t">Since 1984</h4>
+          <p id="w1d">A trusted family store with long-term customer relationships.</p>
+        </div>
+        <div class="card">
+          <div class="icon">💰</div>
+          <h4 id="w2t">Fair Pricing</h4>
+          <p id="w2d">Honest rates and best value for every customer.</p>
+        </div>
+        <div class="card">
+          <div class="icon">⚡</div>
+          <h4 id="w3t">Fast Service</h4>
+          <p id="w3d">Quick billing and fast response on WhatsApp & calls.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER STRIP -->
+  <section id="order">
+    <div class="container">
+      <div class="orderStrip">
+        <div>
+          <h3 id="orderTitle">Want to order quickly?</h3>
+          <p id="orderSub">Send your list on WhatsApp — we’ll confirm availability and price.</p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" href="https://wa.me/919754397187?text=Hello%20Shree%20Ram%20Kirana%20Store%2C%20I%20want%20to%20place%20an%20order.%20Please%20share%20availability%20%26%20price.%20My%20items%20are%3A%20" target="_blank">🟢 WhatsApp Order</a>
+          <a class="btn ghost" href="tel:+919754397187">📞 Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section>
+    <div class="container">
+      <div class="sectionTitle">
+        <h2 id="revTitle">What People Say</h2>
+        <p id="revSub">Local trust matters.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <div class="quote">“</div>
+          <h4 id="r1t">Trusted shop for years</h4>
+          <p id="r1d">Good quality items and fair price. Always helpful.</p>
+        </div>
+        <div class="card">
+          <div class="quote">“</div>
+          <h4 id="r2t">Everything available</h4>
+          <p id="r2d">Grocery + stationery + cold drinks — one stop store.</p>
+        </div>
+        <div class="card">
+          <div class="quote">“</div>
+          <h4 id="r3t">Fast WhatsApp response</h4>
+          <p id="r3d">We send list on WhatsApp and get quick reply.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="sectionTitle">
+        <h2 id="contactTitle">Contact & Location</h2>
+        <p id="contactSub">Visit us near Tamboli Chowk, Nagda, Dewas.</p>
+      </div>
+
+      <div class="contactGrid">
+
+        <div class="card" style="padding:18px;">
+          <div class="infoRow">
+            <div class="icon" style="background:rgba(34,197,94,.10);border-color:rgba(34,197,94,.18);">📞</div>
+            <div>
+              <b id="phoneTitle">Phone / WhatsApp</b>
+              <span><a href="tel:+919754397187">9754397187</a></span>
+            </div>
+          </div>
+
+          <div class="infoRow" style="margin-top:10px;">
+            <div class="icon">📍</div>
+            <div>
+              <b id="addrTitle">Address</b>
+              <span id="addrLine">185, Near Tamboli Chowk, Nagda, Dewas (Madhya Pradesh)</span>
+            </div>
+          </div>
+
+          <div class="infoRow" style="margin-top:10px;">
+            <div class="icon" style="background:rgba(251,191,36,.10);border-color:rgba(251,191,36,.18);">🕒</div>
+            <div>
+              <b id="timeTitle">Opening Hours</b>
+              <span id="timeLine">7:00 AM – 12:00 PM • 3:00 PM – 10:00 PM</span><br/>
+              <span id="breakLine">Break: 12:00 PM – 3:00 PM</span>
+            </div>
+          </div>
+
+          <div class="ctaRow" style="margin-top:14px;">
+            <a class="btn primary" href="https://wa.me/919754397187?text=Hello%20Shree%20Ram%20Kirana%20Store%2C%20I%20want%20to%20place%20an%20order.%20Please%20share%20availability%20%26%20price.%20My%20items%20are%3A%20" target="_blank">🟢 WhatsApp Order</a>
+            <a class="btn blue" href="tel:+919754397187">📞 Call Now</a>
+          </div>
+
+          <div class="ctaRow" style="margi
